@@ -3,12 +3,15 @@ package rpc;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import entity.Item;
 
 // This class provides some necessary methods for successful communications with front end.
 public class RpcHelper {
@@ -57,6 +60,20 @@ public class RpcHelper {
 		} 
 		return new JSONObject();
 	}
+	
+	 // Converts a list of Item objects to JSONArray for sending back to front end (JUnit Test).
+	  public static JSONArray getJSONArray(List<Item> items) {
+	    JSONArray result = new JSONArray();
+	    
+	    try {
+	      for (Item item : items) {
+	        result.put(item.toJSONObject());
+	      }
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	    }
+	    return result;
+	  }
 
 
 }
