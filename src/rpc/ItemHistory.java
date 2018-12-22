@@ -42,15 +42,16 @@ public class ItemHistory extends HttpServlet {
 	 */
 	// This doGet request will be triggered when user clicks "MyFavorite" tab in the navigation section to view saved events.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// allow access only if session exists
-		HttpSession session = request.getSession(false);
-		if (session == null) {
-			response.setStatus(403);
-			return;
-		}
+//		// allow access only if session exists
+//		HttpSession session = request.getSession(false);
+//		
+//		if (session == null) {
+//			response.setStatus(403);
+//			return;
+//		}
 		
-		String userId = session.getAttribute("user_id").toString();
-		//String userId = request.getParameter("user_id");
+//		String userId = session.getAttribute("user_id").toString();
+		String userId = request.getParameter("user_id");
 		
 		JSONArray array = new JSONArray();
 
@@ -76,12 +77,12 @@ public class ItemHistory extends HttpServlet {
 	 */
 	// This doPost request will be triggered when user clicks the "heart" icon (set favorite) on the website.
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// allow access only if session exists
-		HttpSession session = request.getSession(false);
-		if (session == null) {
-			response.setStatus(403);
-			return;
-		}
+//		// allow access only if session exists
+//		HttpSession session = request.getSession(false);
+//		if (session == null) {
+//			response.setStatus(403);
+//			return;
+//		}
 		
 		DBConnection connection = DBConnectionFactory.getConnection();
 		try {

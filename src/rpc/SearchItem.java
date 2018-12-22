@@ -40,12 +40,12 @@ public class SearchItem extends HttpServlet {
 	// This doGet will be triggered when user clicks "Nearby" button in the navigation section.
 	// It gets user's lat&lon and given term from HTTP request and calls "searchItem()" method defined in DBConnection to search for nearby events. 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		// allow access only if session exists
-		HttpSession session = request.getSession(false);
-		if (session == null) {
-			response.setStatus(403);
-			return;
-		}
+//		// allow access only if session exists
+//		HttpSession session = request.getSession(false);
+//		if (session == null) {
+//			response.setStatus(403);
+//			return;
+//		}
 
 		// When we write the front-end, we pre-defined that lat&lon must exist in request.
 		double lat = Double.parseDouble(request.getParameter("lat"));

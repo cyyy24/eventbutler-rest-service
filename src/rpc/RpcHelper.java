@@ -61,7 +61,7 @@ public class RpcHelper {
 		return new JSONObject();
 	}
 	
-	 // Converts a list of Item objects to JSONArray for sending back to front end (JUnit Test).
+	  // Converts a list of Item objects to JSONArray for sending back to front end (JUnit Test).
 	  public static JSONArray getJSONArray(List<Item> items) {
 	    JSONArray result = new JSONArray();
 	    
@@ -74,6 +74,5 @@ public class RpcHelper {
 	    }
 	    return result;
 	  }
-
 
 }
